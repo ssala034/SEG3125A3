@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import './StartButton.css'; 
 
 const StartButton = () => {
     const navigate = useNavigate();
@@ -10,9 +10,9 @@ const StartButton = () => {
     };
 
     return (
-        <Button variant="primary" onClick={handleStartClick}>
+        <button className="start-button" onClick={handleStartClick}>
             Start
-        </Button>
+        </button> // try Button in React Bootstrap
     );
 };
 
