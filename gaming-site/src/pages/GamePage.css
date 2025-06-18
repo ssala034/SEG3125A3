@@ -28,20 +28,14 @@
 }
 
 .game-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
   gap: 32px;
   margin-bottom: 32px;
 }
 
-.game-row {
-  display: flex;
-  gap: 32px;
-}
-
 .game-cell {
-  width: 150px;
-  height: 150px;
   background: #298edb;
   opacity: 0.7;
   border-radius: 16px;

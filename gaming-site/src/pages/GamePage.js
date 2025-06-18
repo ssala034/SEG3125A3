@@ -5,18 +5,18 @@ import './GamePage.css';
 const GRID_SIZE = 3;
 
 const GamePage = () => {
+  const cells = Array.from({ length: GRID_SIZE * GRID_SIZE });
+
   return (
     <div className="game-bg">
       <Header />
       <div className="game-content">
-        <div className="game-level">Level: <span className="level-number">1</span></div>
+        <div className="game-level">
+          Level: <span className="level-number">1</span>
+        </div>
         <div className="game-grid">
-          {[...Array(GRID_SIZE)].map((_, rowIdx) => (
-            <div className="game-row" key={rowIdx}>
-              {[...Array(GRID_SIZE)].map((_, colIdx) => (
-                <div className="game-cell" key={colIdx}></div>
-              ))}
-            </div>
+          {cells.map((_, idx) => (
+            <div className="game-cell" key={idx}></div>
           ))}
         </div>
         <div className="game-sound">
