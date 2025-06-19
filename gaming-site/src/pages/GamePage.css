@@ -23,6 +23,14 @@
   text-align: center;
 }
 
+.game-status {
+  font-size: 18vw;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 32px;
+  color: #fff;
+}
+
 .level-number {
   color: #fff;
 }
