@@ -33,7 +33,6 @@ const GamePage = () => {
         setGameOver(false);
     };
 
-// eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const startTimeout = setTimeout(() => {
             const nextIndex = Math.floor(Math.random() * TOTAL_CELLS);
@@ -60,7 +59,51 @@ const GamePage = () => {
         }, 500); // 500ms delay before starting
 
         return () => clearTimeout(startTimeout);
+        // eslint-disable-next-line
     }, [level]);
+
+
+
+//
+// // eslint-disable-next-line
+//     useEffect(() => {
+//         const startTimeout = setTimeout(() => {
+//             const nextIndex = Math.floor(Math.random() * TOTAL_CELLS);
+//             const newSequence = [...sequence, nextIndex];
+//             setSequence(newSequence);
+//             setUserInput([]);
+//             setMessage('Watch the sequence...');
+//             setIsUserTurn(false);
+//
+//             let i = 0;
+//             const interval = setInterval(() => {
+//                 setActiveIndex(newSequence[i]);
+//                 setTimeout(() => setActiveIndex(null), DELAY / 1.5);
+//                 i++;
+//                 if (i >= newSequence.length) {
+//                     clearInterval(interval);
+//                     setTimeout(() => {
+//                         setIsUserTurn(true);
+//                         setMessage('Your turn!');
+//                     }, DELAY);
+//                 }
+//             }, DELAY);
+//         }, 500);
+//
+//         return () => clearTimeout(startTimeout);
+//         // eslint-disable-next-line
+//     }, [level]);
+//
+
+
+
+
+
+
+
+
+
+
 
     const handleCellClick = (index) => {
         if (!isUserTurn) return;
