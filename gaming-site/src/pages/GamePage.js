@@ -33,6 +33,7 @@ const GamePage = () => {
         setGameOver(false);
     };
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const startTimeout = setTimeout(() => {
             const nextIndex = Math.floor(Math.random() * TOTAL_CELLS);
