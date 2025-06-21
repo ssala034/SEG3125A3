@@ -7,7 +7,7 @@ const Header = ({ children }) => (
     <Container fluid>
       <Navbar.Brand href="/" className="fw-bold header-brand">
         <span className="header-icon">⚡</span>
-        HUMAN TESTER
+        COGNICLICK MEMORY GAME
       </Navbar.Brand>
       <div className="header-actions">{children}</div>
     </Container>
