@@ -10,37 +10,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between; /* Distribute space between children */
+  min-height: 0;
+  padding: 30px 0; /* Optional: add some vertical padding */
+  box-sizing: border-box;
 }
 
 .game-level {
-  color: #b3d1ea;
+  color: #fff;
   font-size: 3vw;
   font-weight: 600;
-  margin-bottom: 32px;
-  margin-top: 32px;
   text-align: center;
+  margin: 0 0 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* smaller gap for tighter look */
 }
 
 .game-status {
-  font-size: 18vw;
+  font-size: 2vw;
   font-weight: bold;
   text-align: center;
-  margin-top: 32px;
+  margin: 0 0 16px 0;
   color: #fff;
+  min-height: 2em;
+  padding-top: 20px;
 }
 
-.level-number {
+.level-label,
+.mistakes-label,
+.lives-label {
   color: #fff;
+  opacity: 1;
+}
+
+.level-number,
+.mistakes-number,
+.lives-number,
+.faded {
+  color: #b3d1ea;
+  opacity: 0.5;
+  margin-left: 6px;
+  margin-right: 18px;
 }
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  grid-template-rows: repeat(3, minmax(80px, 1fr));
   gap: 32px;
-  margin-bottom: 32px;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
 }
 
 .game-cell {
@@ -48,26 +71,8 @@
   opacity: 0.7;
   border-radius: 16px;
   transition: background 0.2s, opacity 0.2s;
-}
-
-.game-sound {
-  position: absolute;
-  left: 3vw;
-  bottom: 3vw;
-}
-
-.sound-icon {
-  font-size: 2.5rem;
-  color: #b3d1ea;
-  opacity: 0.7;
-}
-
-.game-status {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .game-cell.active {
@@ -119,4 +124,45 @@
 
 .popup-box button:hover {
   background: #2980b9;
+}
+
+/* Add at the end of your GamePage.css */
+
+/* Options tab/button */
+.options-tab {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 32px 0 0;
+}
+
+.options-btn {
+  background: #fff;
+  color: #3498db;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.options-btn:hover {
+  background: #3498db;
+  color: #fff;
+}
+
+/* Tile shapes */
+.game-cell.square {
+  border-radius: 16px;
+}
+.game-cell.circle {
+  border-radius: 50%;
+}
+.game-cell.hexagon {
+  clip-path: polygon(
+    25% 6%, 75% 6%,
+    100% 50%,
+    75% 94%, 25% 94%,
+    0% 50%
+  );
 }
