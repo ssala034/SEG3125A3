@@ -78,6 +78,7 @@ const GamePage = () => {
         }, 500);
 
         return () => clearTimeout(startTimeout);
+        // eslint-disable-next-line
     }, [level]);
 
     const handleCellClick = (index) => {
