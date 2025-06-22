@@ -10,7 +10,7 @@ const DELAY = 600;
 
 const defaultOptions = {
     tileShape: 'square',
-    mistakesAllowed: 1,
+    mistakesAllowed: 3,
 };
 
 const GamePage = () => {
@@ -93,11 +93,10 @@ const GamePage = () => {
 
         const correctIndex = sequence[newUserInput.length - 1];
         if (index !== correctIndex) {
-            // Decrement mistakes left
             if (mistakesLeft > 1) {
                 setMistakesLeft(mistakesLeft - 1);
                 setMessage(`Wrong! ${mistakesLeft - 1} mistake${mistakesLeft - 1 === 1 ? '' : 's'} left.`);
-                setUserInput([]); // reset input for this round
+                setUserInput([]); 
             } else {
                 setFinalLevel(level);
                 setGameOver(true);
@@ -110,14 +109,13 @@ const GamePage = () => {
             setIsUserTurn(false);
             setTimeout(() => {
                 setLevel((prev) => prev + 1);
-                setMistakesLeft(options.mistakesAllowed); // reset mistakes for new level
+                setMistakesLeft(options.mistakesAllowed);
             }, 1000);
         }
     };
 
     const cells = Array.from({ length: TOTAL_CELLS });
 
-    // Tile shape classes
     const getTileClass = () => {
         if (options.tileShape === 'circle') return 'game-cell circle';
         if (options.tileShape === 'hexagon') return 'game-cell hexagon';
@@ -176,120 +174,3 @@ const GamePage = () => {
 };
 
 export default GamePage;
-
-
-
-/**
- * 
- * Commneted code:
- * 
- * // const [level, setLevel] = useState(1);
-    // const [sequence, setSequence] = useState([]);
-    // const [activeIndex, setActiveIndex] = useState(null);
-    //
-    // useEffect(() => {
-    //     // Add one more index to the sequence on new level
-    //     const nextIndex = Math.floor(Math.random() * TOTAL_CELLS);
-    //     const newSequence = [...sequence, nextIndex];
-    //     setSequence(newSequence);
-    //
-    //     // Start showing the sequence
-    //     let i = 0;
-    //     const interval = setInterval(() => {
-    //         setActiveIndex(newSequence[i]);
-    //         setTimeout(() => setActiveIndex(null), DELAY / 1.5); // hide before next
-    //         i++;
-    //         if (i >= newSequence.length) clearInterval(interval);
-    //     }, DELAY);
-    // }, [level]);
-    //
-    // const handleNextLevel = () => {
-    //     setLevel(prev => prev + 1);
-    // };
-
-    // setMessage('Wrong! Try again.');
-            // setIsUserTurn(false);
-            // setTimeout(() => {
-            //     setUserInput([]);
-            //     setMessage('Watch again...');
-            //     replaySequence();
-            // }, 1000);
- * 
- * 
- * 
- * 
- * // const replaySequence = () => {
-    //     let i = 0;
-    //     const interval = setInterval(() => {
-    //         setActiveIndex(sequence[i]);
-    //         setTimeout(() => setActiveIndex(null), DELAY / 1.5);
-    //         i++;
-    //         if (i >= sequence.length) {
-    //             clearInterval(interval);
-    //             setTimeout(() => {
-    //                 setIsUserTurn(true);
-    //                 setMessage('Your turn!');
-    //             }, DELAY);
-    //         }
-    //     }, DELAY);
-    // };
-
-
-
-    In return statement
-
-    // <div className="game-bg">
-      //   <Header />
-      //   <div className="game-content">
-      //     <div className="game-level">
-      //       Level: <span className="level-number">1</span>
-      //     </div>
-      //     <div className="game-grid">
-      //       {cells.map((_, idx) => (
-      //         <div className="game-cell" key={idx}></div>
-      //       ))}
-      //     </div>
-      //     <div className="game-sound">
-      //       <span role="img" aria-label="sound" className="sound-icon">🔊</span>
-      //     </div>
-      //   </div>
-      // </div>
-
-
-
-
-
-
-
-
-      //
-// // eslint-disable-next-line
-//     useEffect(() => {
-//         const startTimeout = setTimeout(() => {
-//             const nextIndex = Math.floor(Math.random() * TOTAL_CELLS);
-//             const newSequence = [...sequence, nextIndex];
-//             setSequence(newSequence);
-//             setUserInput([]);
-//             setMessage('Watch the sequence...');
-//             setIsUserTurn(false);
-//
-//             let i = 0;
-//             const interval = setInterval(() => {
-//                 setActiveIndex(newSequence[i]);
-//                 setTimeout(() => setActiveIndex(null), DELAY / 1.5);
-//                 i++;
-//                 if (i >= newSequence.length) {
-//                     clearInterval(interval);
-//                     setTimeout(() => {
-//                         setIsUserTurn(true);
-//                         setMessage('Your turn!');
-//                     }, DELAY);
-//                 }
-//             }, DELAY);
-//         }, 500);
-//
-//         return () => clearTimeout(startTimeout);
-//         // eslint-disable-next-line
-//     }, [level]);
-//
- */

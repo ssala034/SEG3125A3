@@ -5,7 +5,6 @@ import './HomePage.css';
 import StartButton from '../components/StartButton';
 import {motion} from 'framer-motion';
 
-// icon grid
 const iconGrid = [
   ['filled', 'filled'],
   ['filled', 'outlined'],
@@ -14,7 +13,7 @@ const iconGrid = [
 const HomePage = ({
   title = "Sequence Memory Test",
   subtitle = "Memorize the pattern - Win the Game!",
-}) => (
+  }) => (
   <div className="homepage-bg">
     <Header />
     <motion.div
@@ -22,7 +21,8 @@ const HomePage = ({
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-    >      <div className="icon-grid">
+    > 
+    <div className="icon-grid">
         {iconGrid.map((row, rowIdx) => (
           <div className="row" key={rowIdx}>
             {row.map((type, colIdx) => (

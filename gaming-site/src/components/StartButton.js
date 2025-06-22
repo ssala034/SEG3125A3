@@ -6,13 +6,13 @@ const StartButton = () => {
     const navigate = useNavigate();
 
     const handleStartClick = () => {
-        navigate('/game'); // Navigate to the game page
+        navigate('/game');
     };
 
     return (
         <button className="start-button" onClick={handleStartClick}>
             Start
-        </button> // try Button in React Bootstrap
+        </button> 
     );
 };
 

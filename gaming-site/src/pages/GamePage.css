@@ -10,9 +10,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Distribute space between children */
+  justify-content: space-between; 
   min-height: 0;
-  padding: 30px 0; /* Optional: add some vertical padding */
+  padding: 30px 0; 
   box-sizing: border-box;
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px; /* smaller gap for tighter look */
+  gap: 8px; 
 }
 
 .game-status {
@@ -76,7 +76,7 @@
 }
 
 .game-cell.active {
-  background: #f1c40f; /* bright yellow highlight */
+  background: #f1c40f; 
   opacity: 1;
 }
 
@@ -126,9 +126,6 @@
   background: #2980b9;
 }
 
-/* Add at the end of your GamePage.css */
-
-/* Options tab/button */
 .options-tab {
   display: flex;
   justify-content: flex-end;
@@ -151,7 +148,6 @@
   color: #fff;
 }
 
-/* Tile shapes */
 .game-cell.square {
   border-radius: 16px;
 }

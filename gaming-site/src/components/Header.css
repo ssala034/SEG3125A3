@@ -15,3 +15,18 @@
   align-items: center;
   gap: 16px;
 }
+
+.header-home-link {
+  color: gray;
+  opacity: 0.6;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 18px;
+  font-size: 1.1rem;
+  transition: opacity 0.2s;
+}
+
+.header-home-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
